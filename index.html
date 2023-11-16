@@ -3,12 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simple Website with Google Calendar</title>
+  <title>Cuz we SAVAGE-ing</title>
   <style>
     body {
       font-family: sans-serif;
       margin: 0;
       padding: 0;
+    }
+
+    .header {
+      background-color: #f2f2f2;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .header a {
+      text-decoration: none;
+      color: #333;
+      padding: 10px;
+      margin-right: 20px;
     }
 
     .calendar-container {
@@ -21,6 +34,10 @@
   </style>
 </head>
 <body>
+  <div class="header">
+    <a href="/">Home</a>
+  </div>
+
   <div class="calendar-container">
     <iframe src="https://calendar.google.com/calendar/embed?src=9d2704fd487ecdb6ae62608c938d94d5bdd276ce739ba2b0792247e98053a7e1%40group.calendar.google.com&ctz=America%2FNew_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
   </div>
