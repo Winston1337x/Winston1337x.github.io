@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+:root { --bg: #ffffff; --overlay: rgba(15,15,15,0.35); --card-bg: rgba(255,255,255,0.88); --text: #222; }
+
+html, body { height: 100%; margin: 0; }
+
+body {
+  font-family: 'Pacifico', cursive, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg);
+  position: relative;
+  overflow: hidden;
+}
+
+/* blurred background layer using the same image to pick up colors */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("../images/winston_001.jpg");
+  background-size: cover;
+  background-position: center;
+  filter: blur(28px) saturate(1.05) contrast(0.95);
+  transform: scale(1.03);
+  z-index: 0;
+  opacity: 0.98;
+}
+
+/* color overlay to blend/soften the hues */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,240,220,0.32), rgba(220,240,255,0.24));
+  mix-blend-mode: overlay;
+  z-index: 1;
+}
+
+.wrap { position: relative; z-index: 2; text-align: center; padding: 2rem; width: 100%; max-width: 840px; }
+
+.image-spot { display: inline-block; width: 90%; max-width: 640px; border-radius: 12px; padding: 0.6rem; background: var(--card-bg); box-shadow: 0 12px 40px rgba(18,18,18,0.16); border: none; }
+
+.image-spot img { width: 100%; height: auto; display: block; border-radius: 10px; object-fit: cover; filter: saturate(1.02) contrast(1.03); }
+
+#status-heading { margin: 0 0 0.9rem 0; font-weight: 400; font-size: clamp(1.3rem, 3.2vw, 2.4rem); color: #222; }
+
+.caption { margin-top: 0.85rem; font-size: 1rem; color: #444; font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+
+@media (max-width: 520px) {
+  body::before { filter: blur(20px); }
+  .image-spot { width: 96%; padding: 0.5rem; }
+  #status-heading { font-size: 1.15rem; }
+}
